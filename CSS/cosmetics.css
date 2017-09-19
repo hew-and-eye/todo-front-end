@@ -1,0 +1,100 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea {
+    font-size: 14pt;
+    border-radius: 3px;
+    border: none;
+    resize: none;
+    box-shadow: 0px 4px 5px #dddddd;
+    width:90%;
+    padding:20px;
+    display: inline-block;
+    /* margin:10px; */
+}
+
+.login-window input {
+    font-size: 14pt;
+    padding:10px;
+    margin:10px;
+    border-radius: 3px;
+    border:none;
+    width:90%;
+    box-shadow: 0px 4px 5px #dddddd;
+}
+
+input {
+    font-size: 14pt;
+    padding:10px;
+    padding-left:20px;
+    padding-right:20px;
+    margin:10px;
+    margin-left:0;
+    margin-right:0;
+    border-radius: 3px;
+    border:none;
+    width:90%;
+    box-shadow: 0px 4px 5px #dddddd;
+}
+
+input[type="checkbox"] {
+    background-color: transparent;
+    margin-top:2.5vh;
+    width:100%;
+    box-shadow: 0px 0px 0px transparent;
+    transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    -o-transform: scale(1.5);
+}
+
+.custom-button {
+    display: inline-block;
+    min-width: 25%;
+    margin-top:5%;
+    margin-left: 2%; 
+    margin-right:2%;
+    cursor: pointer;
+    border-radius: 3px;
+    text-align: center;
+    background-color: #15a7d1;
+    color: white;
+    padding:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    box-shadow: 0px 4px 5px #dddddd;
+}
+
+.custom-task-button {
+    width:25%; margin:0; margin-top:10px; padding:10px;
+    margin-bottom: 10pxl 
+}
+
+.floating-button {
+    min-width: 0;
+    width:10%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: right;
+}
+
+.warning-text {
+    color:red;
+    font-size: 10pt;
+    text-align: left;
+    margin-left:10px;
+    margin-top:2px;
+}
+
+.user-tag {
+    float:left;
+    margin-top:5px;
+    margin-left:10px;
+    font-size: 12pt;
+    background-color: #3d3d3d;
+    color:white;
+    border-radius: 16pt;
+    padding:8pt;
+}

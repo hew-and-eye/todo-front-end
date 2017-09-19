@@ -1,0 +1,25 @@
+<!-- <div class="narrow-column">
+    <div class="custom-button" style="width:90%; margin:0;" ng-click="newTask=true;"> new task</div>
+    <input type="text" placeholder="Search task" />
+</div> -->
+<div class="full-column">
+    <div ng-repeat="task in tasks track by $index">
+        <div class="task-card" tabindex="2" id=tc-{{$index}}>
+            <div style="text-align:center; width:100%;">
+                <input ng-click="expand($index)" type="text" style="width:95%; margin:10px;" placeholder="Task name" ng-model="task.name" />
+                <textarea rows="5" style="width:95%; margin:10px;" placeholder="Task description" ng-model="task.description"> </textarea>
+            </div>
+            <div ng-repeat="user in task.users" class="user-tag">
+                <div> {{user}} </div>
+            </div>
+        </div>
+        <div class="task-footer">
+            <div style="width:40%; float:right;">
+                <div class="custom-button custom-task-button"> complete </div>
+                <div class="custom-button custom-task-button"> upload edits </div>
+                <div class="custom-button custom-task-button" style="margin-right:0;"> delete </div>
+            </div>
+            <div style="width:58%; float:right; height:6vh;" ng-click="expand($index)"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+body {
+    margin:0;
+    padding:0;
+}
+.top-bar {
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background-color: #15a7d1;
+    height:5vh;
+    color:white;
+    font-size: 3vh;
+    padding-top: 1vh; 
+    padding-left:20px;
+    /* box-shadow: 0px 4px 2px #fdfdfd; */
+    margin-bottom: 0;
+}
+
+.full-column {
+    padding-left:1%;
+    padding-right: 1%;
+    padding-top:10px;
+    width: 98%;
+    height:93vh;
+    background-color: white;
+}
+
+.wide-column {
+    float: left;
+    padding-left:1%;
+    padding-right: 1%;
+    padding-top:10px;
+    width: 64%;
+    height:93vh;
+    background-color: white;
+}
+.narrow-column {
+    float: left;
+    padding-left:1%;
+    padding-right: 1%;
+    padding-top:10px;
+    width:32%;
+    height:93vh;
+    background-color: whitesmoke;
+}
+
+.login-window {
+    padding:5vw;
+    text-align: center;
+    position: fixed;
+    top:25vh;
+    left: 28vw;
+    width:33vw;
+    background-color: whitesmoke;
+    border-radius: 3px;
+    box-shadow: 0px 4px 2px #dddddd;
+}
+
+.task-card {
+    width: 100%;
+    max-height: 8vh;
+    overflow: hidden;
+    background-color: whitesmoke;
+    border-radius: 3px;
+    transition: max-height 0.2s;
+}
+
+.task-footer {
+    float:right;
+    margin:0;
+    width:100%;
+    box-shadow: 0px 4px 2px #dddddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px; 
+    background-color: whitesmoke;
+}

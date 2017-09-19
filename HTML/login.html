@@ -1,0 +1,18 @@
+<div class="login-window">
+    <div>
+        <input type="text" placeholder="Username" ng-model="username">
+    </div>
+    <div>
+        <input type="password" placeholder="Password" ng-model="password">
+    </div>
+    <div ng-show="newUser">
+        <div>
+            <input type="password" placeholder="Confirm Password" ng-model="confirmPassword">
+        </div>
+    </div>
+    <p class="warning-text" ng-hide="!newUser || (password == confirmPassword || confirmPassword == '')"> passwords must match</p>
+    <div style="text-align:center; width:100%;">
+        <div class="custom-button" ng-click="login()"> Login </div>
+        <div class="custom-button" ng-click="newUser=true;"> New User </div>
+    </div>
+</div>

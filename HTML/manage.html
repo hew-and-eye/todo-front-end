@@ -4,22 +4,48 @@
 </div> -->
 <div class="full-column">
     <div ng-repeat="task in tasks track by $index">
-        <div class="task-card" tabindex="2" id=tc-{{$index}}>
+        <div class="task-card" id=tc-{{$index}}>
+            {{$index}}
             <div style="text-align:center; width:100%;">
                 <input ng-click="expand($index)" type="text" style="width:95%; margin:10px;" placeholder="Task name" ng-model="task.name" />
                 <textarea rows="5" style="width:95%; margin:10px;" placeholder="Task description" ng-model="task.description"> </textarea>
             </div>
+            <div class="user-tag" style="background-color:#15a7d1; cursor:pointer;" ng-click="editUsers($index)">edit assigned users</div>
             <div ng-repeat="user in task.users" class="user-tag">
                 <div> {{user}} </div>
             </div>
         </div>
         <div class="task-footer">
             <div style="width:40%; float:right;">
+                <div class="custom-button custom-task-button" style="margin-right:12px;"> delete </div>
+                <div class="custom-button custom-task-button"> upload </div>
                 <div class="custom-button custom-task-button"> complete </div>
-                <div class="custom-button custom-task-button"> upload edits </div>
-                <div class="custom-button custom-task-button" style="margin-right:0;"> delete </div>
             </div>
-            <div style="width:58%; float:right; height:6vh;" ng-click="expand($index)"></div>
+            <div style="width:58%; float:right; height:9vh;" ng-click="expand($index)"></div>
+        </div>
+    </div>
+</div>
+<div class="assign-user-overlay" ng-show="assignUsers"></div>
+<div ng-show="assignUsers" class="assign-user-window">
+    <div style="height:85%;">
+        <input type="text" placeholder="Search users" ng-model="userSearchText" style="width:90%; margin:0; padding:0; margin:4%; padding:1%; padding-left:2%; margin-left:2;" />
+        <div ng-repeat="user in tasks[currentTask].users track by $index"
+             ng-show="user.includes(userSearchText) || userSearchText == null"
+             ng-click="tasks[currentTask].users.splice($index,1);"
+             style=" text-align:center; background-color:#15a7d1" class="user-tag">
+            {{user}}
+        </div>
+        <div ng-repeat="user in users"
+             ng-hide="tasks[currentTask].users.includes(user) || (!user.includes(userSearchText) && userSearchText != '')"
+             ng-click="tasks[currentTask].users.push(user);"
+             class="user-tag" style="text-align:center;">
+            {{user}}
+        </div>
+    </div>
+    <div>
+        <div style="width:50%; float:right;">
+            <div class="custom-button custom-task-button" style="margin-right:12px;" ng-click="closeAssign(false)"> close </div>
+            <!--<div class="custom-button custom-task-button" ng-click="closeAssign(true)"> assign </div>-->
         </div>
     </div>
 </div>

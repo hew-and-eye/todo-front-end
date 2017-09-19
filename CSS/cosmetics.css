@@ -11,6 +11,7 @@ textarea {
     width:90%;
     padding:20px;
     display: inline-block;
+    font-family:'Segoe UI', Tahoma, Geneva, Tahoma, sans-serif;
     /* margin:10px; */
 }
 
@@ -68,8 +69,10 @@ input[type="checkbox"] {
 }
 
 .custom-task-button {
-    width:25%; margin:0; margin-top:10px; padding:10px;
-    margin-bottom: 10pxl 
+    float:right;
+    width:25%; margin-right:5px; margin-left:0; margin-top:10px; padding:10px;
+    margin-bottom: 10px; 
+    min-width:18%;
 }
 
 .floating-button {
@@ -97,4 +100,14 @@ input[type="checkbox"] {
     color:white;
     border-radius: 16pt;
     padding:8pt;
+}
+
+.assign-user-overlay {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height:100vh;
+    background-color:#3d3d3d;
+    opacity:0.9;
 }

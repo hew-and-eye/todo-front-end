@@ -5,7 +5,6 @@
 <div class="full-column">
     <div ng-repeat="task in tasks track by $index">
         <div class="task-card" id=tc-{{$index}}>
-            {{$index}}
             <div style="text-align:center; width:100%;">
                 <input ng-click="expand($index)" type="text" style="width:95%; margin:10px;" placeholder="Task name" ng-model="task.name" />
                 <textarea rows="5" style="width:95%; margin:10px;" placeholder="Task description" ng-model="task.description"> </textarea>
@@ -17,9 +16,10 @@
         </div>
         <div class="task-footer">
             <div style="width:40%; float:right;">
-                <div class="custom-button custom-task-button" style="margin-right:12px;"> delete </div>
-                <div class="custom-button custom-task-button"> upload </div>
-                <div class="custom-button custom-task-button"> complete </div>
+                <div ng-hide="$index==0" class="custom-button custom-task-button" ng-click="post($index, 'deletetask')" style="margin-right:12px;"> delete </div>
+                <div ng-hide="$index==0" class="custom-button custom-task-button" ng-click="post($index, 'edittask')"> update </div>
+                <div ng-show="$index==0" class="custom-button custom-task-button" style="margin-right:12px;" ng-click="post($index)"> add task </div>
+                <div ng-hide="$index==0" class="custom-button custom-task-button {{completeButtonClass(task.complete)}}" ng-click="post($index, 'completetask')"> complete </div>
             </div>
             <div style="width:58%; float:right; height:9vh;" ng-click="expand($index)"></div>
         </div>
@@ -49,3 +49,4 @@
         </div>
     </div>
 </div>
+<div ng-show="syncing" class="server-popup corner-popup"></div>

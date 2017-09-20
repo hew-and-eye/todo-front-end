@@ -3,16 +3,17 @@
         <input type="text" placeholder="Username" id="username">
     </div>
     <div>
-        <input type="password" placeholder="Password" id="password">
+        <input type="password" placeholder="Password" id="password" ng-model="password">
     </div>
-    <div ng-show="newUser">
-        <div>
-            <input type="password" placeholder="Confirm Password" ng-model="confirmPassword">
+    <div>
+        <div ng-hide="!newUser">
+            <input type="password" placeholder="Confirm password if new user" id="confirmPassword" ng-model="confirmPassword">
         </div>
     </div>
-    <p class="warning-text" ng-hide="!newUser || (password == confirmPassword || confirmPassword == '')"> passwords must match</p>
+    <p class="warning-text" ng-hide="(!newUser || password == confirmPassword || confirmPassword == '' && !missingFields)"> passwords must match</p>
     <div style="text-align:center; width:100%;">
-        <div class="custom-button" ng-click="login()"> Login </div>
-        <div class="custom-button" ng-click="newUser=true;"> New User </div>
+        <div class="custom-button" ng-click="login('login')"> Login </div>
+        <div class="custom-button" ng-click="login('adduser')"> New User </div>
     </div>
+    <div ng-show="syncing" class="server-popup"></div>
 </div>

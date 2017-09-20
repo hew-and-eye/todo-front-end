@@ -69,10 +69,17 @@ input[type="checkbox"] {
 }
 
 .custom-task-button {
-    float:right;
-    width:25%; margin-right:5px; margin-left:0; margin-top:10px; padding:10px;
-    margin-bottom: 10px; 
-    min-width:18%;
+    float: right;
+    width: 25%;
+    margin-right: 5px;
+    margin-left: 0;
+    margin-top: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    min-width: 18%;
+    background-color: white;
+    border: 2px solid #15a7d1;
+    color: #15a7d1
 }
 
 .floating-button {
@@ -100,6 +107,7 @@ input[type="checkbox"] {
     color:white;
     border-radius: 16pt;
     padding:8pt;
+    cursor:pointer;
 }
 
 .assign-user-overlay {
@@ -110,4 +118,14 @@ input[type="checkbox"] {
     height:100vh;
     background-color:#3d3d3d;
     opacity:0.9;
+}
+
+.task-incomplete-button {
+    background-color: #e03535;
+    color: white;
+}
+
+.task-complete-button {
+    background-color: #0ad655;
+    color:white;
 }

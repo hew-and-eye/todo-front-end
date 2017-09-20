@@ -77,6 +77,16 @@ app.controller('todoController', function ($scope, $location, $http) {
 
     $scope.post = function (index, optype) {
         $scope.syncing = true;
+        if ($scope.tasks[index].name == undefined || $scope.tasks[index].name == "") {
+            alert("please add a task name");
+            $scope.syncing = false;
+            return;
+        }
+        if ($scope.tasks[index].users.length == 0) {
+            alert("please assign users");
+            $scope.syncing = false;
+            return;
+        }
         if (index == 0) // the first task in the list is always blank, and the only function available show be creation
             optype = "createtask";
         console.log("id is " + $scope.tasks[index].id + ", optype is" + optype);

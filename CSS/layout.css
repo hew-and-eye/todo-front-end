@@ -17,6 +17,7 @@ body {
     /* box-shadow: 0px 4px 2px #fdfdfd; */
     box-shadow: 0px 4px 2px #dddddd;
     margin-bottom: 0;
+    font-weight:bold;
 }
 
 .full-column {

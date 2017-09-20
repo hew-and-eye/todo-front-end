@@ -87,13 +87,13 @@ app.controller('todoController', function ($scope, $location, $http) {
             console.log($scope.tasks[index].complete);
         }
         // handle local changes
-        if (optype == "createtask") {
-            // if a new task was added, put a blank one at the front of the list
-            $scope.tasks = [{ "name": "", "description": "", "users": [$scope.username] }].concat($scope.tasks);
-        } else if (optype == "deletetask") {
-            // splice that sucker outta there
-            $scope.tasks.splice(index, 1);
-        }
+        //if (optype == "createtask") {
+        //    // if a new task was added, put a blank one at the front of the list
+        //    $scope.tasks = [{ "name": "", "description": "", "users": [$scope.username] }].concat($scope.tasks);
+        //} else if (optype == "deletetask") {
+        //    // splice that sucker outta there
+        //    $scope.tasks.splice(index, 1);
+        //}
         // handle server changes
         $http({
             method: 'POST',
@@ -118,7 +118,6 @@ app.controller('todoController', function ($scope, $location, $http) {
                 console.log("posted successfully");
                 $scope.login("login");
             }
-            $scope.syncing = false;
             //console.log(response);
             // this callback will be called asynchronously
             // when the response is available

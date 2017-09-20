@@ -123,9 +123,11 @@ input[type="checkbox"] {
 .task-incomplete-button {
     background-color: #e03535;
     color: white;
+    border-color: #e03535;
 }
 
 .task-complete-button {
     background-color: #0ad655;
-    color:white;
+    color: white;
+    border-color: #0ad655;
 }

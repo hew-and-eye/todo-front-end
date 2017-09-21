@@ -43,7 +43,7 @@ app.controller('todoController', function ($scope, $location, $http) {
                 }
             }).then(function successCallback(response) {
                 if (response.data.error == "false") {
-                    $scope.tasks = [{ "name": "", "description": "", "users": [$scope.username] }].concat(response.data.data);
+                    $scope.tasks = [{ "id": "99999", "name": "", "description": "", "complete": "false", "users": [$scope.username] }].concat(response.data.data);
                     console.log(response.data.users);
                     $scope.users = response.data.users;
                     $location.path("/manage");
@@ -89,21 +89,33 @@ app.controller('todoController', function ($scope, $location, $http) {
         }
         if (index == 0) // the first task in the list is always blank, and the only function available show be creation
             optype = "createtask";
-        console.log("id is " + $scope.tasks[index].id + ", optype is" + optype);
+        //console.log("id is " + $scope.tasks[index].id + ", optype is" + optype);
+        if (optype != "createtask") {
+            index = $scope.tasks.length - index;
+        }
+
         if (optype == "completetask") {
             if ($scope.tasks[index].complete == "false")
                 $scope.tasks[index].complete = "true";
             else $scope.tasks[index].complete = "false";
-            console.log($scope.tasks[index].complete);
+            console.log(index + " : " +$scope.tasks[index].name);
         }
         // handle local changes
-        //if (optype == "createtask") {
-        //    // if a new task was added, put a blank one at the front of the list
-        //    $scope.tasks = [{ "name": "", "description": "", "users": [$scope.username] }].concat($scope.tasks);
-        //} else if (optype == "deletetask") {
-        //    // splice that sucker outta there
-        //    $scope.tasks.splice(index, 1);
-        //}
+        let data = { // store data for the $http call because the tasks array is about to change
+            "optype": optype,
+            "name": $scope.tasks[index].name,
+            "description": $scope.tasks[index].description,
+            "complete": $scope.tasks[index].complete,
+            "users": $scope.tasks[index].users,
+            "id": $scope.tasks[index].id
+        }
+        if (optype == "createtask") {
+            // if a new task was added, put a blank one at the front of the list
+            $scope.tasks = [{"id":"99999", "name": "", "description": "", "complete":"false", "users": [$scope.username] }].concat($scope.tasks);
+        } else if (optype == "deletetask") {
+            // splice that sucker outta there
+            $scope.tasks.splice(index, 1);
+        }
         // handle server changes
         $http({
             method: 'POST',
@@ -115,14 +127,7 @@ app.controller('todoController', function ($scope, $location, $http) {
             },
             contentType: 'application/json',
             mimeType: 'application/json',
-            params: {
-                "optype": optype,
-                "name": $scope.tasks[index].name,
-                "description": $scope.tasks[index].description,
-                "complete": $scope.tasks[index].complete,
-                "users": $scope.tasks[index].users,
-                "id": $scope.tasks[index].id
-            }
+            params: data
         }).then(function successCallback(response) {
             if (response.data.error == "false" || response.data.error == undefined) {
                 console.log("posted successfully");

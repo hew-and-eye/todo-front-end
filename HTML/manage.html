@@ -3,7 +3,7 @@
     <input type="text" placeholder="Search task" />
 </div> -->
 <div class="full-column">
-    <div ng-repeat="task in tasks track by $index">
+    <div ng-repeat="task in tasks | orderBy : '-id' track by $index">
         <div class="task-card" id=tc-{{$index}}>
             <div style="text-align:center; width:100%;">
                 <input ng-click="expand($index)" type="text" style="width:95%; margin:10px;" placeholder="Task name" ng-model="task.name" />
